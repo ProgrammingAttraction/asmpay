@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FiMenu, FiX, FiSend } from 'react-icons/fi';
 import logo from "../../assets/logo.png";
-
+import paper from "../../assets/paper.png"
 const NAV_LINKS = [
   { id: 'home', label: 'Home' },
   { id: 'about', label: 'About' },
@@ -13,6 +13,10 @@ const TELEGRAM_CONTACTS = [
   { label: 'Support 1', username: '@Exchangewallet234', url: 'https://t.me/Exchangewallet234' },
   { label: 'Support 2', username: '@Rolexbstk', url: 'https://t.me/Rolexbstk' },
 ];
+
+// Floating Telegram Handle & URL
+const TELEGRAM_FLOATING_URL = 'https://t.me/asmpay168';
+const TELEGRAM_USERNAME = '@asmpay168';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -237,6 +241,49 @@ const Header = () => {
           </div>
         </div>
       )}
+
+      {/* Custom CSS Animation for Jumping/Bouncing */}
+      <style>{`
+        @keyframes floatJump {
+          0%, 100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-8px);
+          }
+        }
+        .animate-float-jump {
+          animation: floatJump 2.2s ease-in-out infinite;
+        }
+      `}</style>
+
+      {/* Floating Bottom-Right Jumping Telegram Button with Label */}
+      <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3">
+        {/* Tooltip / Handle Badge (Optional aesthetic accent) */}
+        <a
+          href={TELEGRAM_FLOATING_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hidden sm:flex items-center px-3 py-1.5 bg-[#0B1120]/90 backdrop-blur-md border border-[#0088cc]/40 text-slate-200 text-xs font-semibold rounded-full shadow-lg shadow-black/40 hover:text-white transition-all"
+        >
+          {TELEGRAM_USERNAME}
+        </a>
+
+        {/* Bouncing Telegram Button */}
+        <a
+          href={TELEGRAM_FLOATING_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Chat on Telegram @asmpay168"
+          className="animate-float-jump relative flex items-center justify-center w-14 h-14 bg-gradient-to-tr from-[#0077b5] to-[#229ed9] text-white rounded-full shadow-xl shadow-[#0088cc]/40 hover:scale-110 active:scale-95 transition-transform duration-300 group"
+        >
+          {/* Subtle pulse ring behind button */}
+          <span className="absolute inset-0 rounded-full bg-[#229ed9] opacity-75 animate-ping pointer-events-none" style={{ animationDuration: '3s' }}></span>
+          
+          {/* Official Telegram Paper Airplane SVG Icon */}
+          <img src={paper} className='w-[30px] h-[30px]'/>
+        </a>
+      </div>
     </>
   );
 };
