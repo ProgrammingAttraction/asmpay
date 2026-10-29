@@ -260,15 +260,6 @@ const Header = () => {
       {/* Floating Bottom-Right Jumping Telegram Button with Label */}
       <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3">
         {/* Tooltip / Handle Badge (Optional aesthetic accent) */}
-        <a
-          href={TELEGRAM_FLOATING_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hidden sm:flex items-center px-3 py-1.5 bg-[#0B1120]/90 backdrop-blur-md border border-[#0088cc]/40 text-slate-200 text-xs font-semibold rounded-full shadow-lg shadow-black/40 hover:text-white transition-all"
-        >
-          {TELEGRAM_USERNAME}
-        </a>
-
         {/* Bouncing Telegram Button */}
         <a
           href={TELEGRAM_FLOATING_URL}
